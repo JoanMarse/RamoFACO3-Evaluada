@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <title>TERCERO</title>
+        <meta name="description" content="Evaluación de cierre de la Unidad I: Bocetos de introducción a la programación" />
+    </head>
+    <body>
+        <nav>
+            <a href="index.html"><span class="miNombre"></span></a>
+            <a href="page-1.html">Primero</a>
+            <a href="page-2.html">Segundo</a>
+            <a href="page-3.html">Tercero</a>
+            <a href="page-4.html">Cuarto</a>
+        </nav>
+        <main></main>
+        <script>
+            var img;
+            function setup() {
+                createCanvas(windowWidth, windowHeight, WEBGL).position(0, 0).style("z-index", -1);
+                img = loadImage('cat.jpg');
+                selectAll("a")[3].addClass("aqui");
+                selectAll(".miNombre").forEach((n) => {
+                    n.html("José Martín");
+                });
+            }
+
+            function draw() {
+                background("#212529");
+                 
+                push();
+                rotateZ(frameCount * 0.01);
+                rotateX(frameCount * 0.01);
+                rotateY(frameCount * 0.01);
+                texture(img);
+                box(300);
+                pop();
+
+                imageMode(CENTER)
+                image(img);
+            }
+
+            function windowResized() {
+                resizeCanvas(windowWidth, windowHeight);
+            }
+        </script>
+    </body>
+</html>
